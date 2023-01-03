@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.motivity.models.Appointments;
@@ -15,7 +16,7 @@ public interface AppointmentsRepo  extends CrudRepository<Appointments, Integer>
 	public List<Appointments> patientsidestatus(String patientId);
 	
 
-	@Query("select a from Appointments a where a.problem=:department and status=:status")
+	@Query("select a from Appointments a where a.problem=:department and a.status=:status")
 	public List<Appointments> showAndAcceptAppointment(String department,String status);
 	
 	@Transactional

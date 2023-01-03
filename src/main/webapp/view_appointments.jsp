@@ -323,7 +323,7 @@ for(Appointments ap:aplist)
 {
 %>
  <tr> 
-    <td><input name="appointmentId"  value=<%=ap.getAppointmentId()%> disabled /></td>
+    <td><input name="appointmentId"  value=<%=ap.getAppointmentId()%> readonly="readonly" /></td>
 	<td><%=ap.getPatientName() %></td>
 	<td><%=ap.getPatientPhoneNo() %></td>
 	<td><%=ap.getPatientGender() %></td>

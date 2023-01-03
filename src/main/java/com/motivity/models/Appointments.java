@@ -5,10 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
 
 @Entity
+@Table(name = "appointment")
 @DynamicInsert
 public class Appointments 
 {
@@ -21,6 +23,13 @@ public class Appointments
 	private String patientGender;
 	private String patientAge;
 	private String problem;
+	public int getDoctorId() {
+		return doctorId;
+	}
+	public void setDoctorId(int doctorId) {
+		this.doctorId = doctorId;
+	}
+	private int doctorId;
 	private String applyDate;
 	private String time;
 	private String appointmentDate;

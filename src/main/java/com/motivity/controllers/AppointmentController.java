@@ -30,6 +30,7 @@ public class AppointmentController {
 
 	@RequestMapping("/insertAppointment")
 	public ModelAndView insertAppointment(@ModelAttribute Appointments appointment) {
+	System.out.println(appointment.getApplyDate());
 		Patients pd = (Patients) session.getAttribute("currentpatient");
 		Appointments ap = new Appointments();
 		ap.setProblem(appointment.getProblem());
@@ -39,8 +40,6 @@ public class AppointmentController {
 		ap.setPatientName(appointment.getPatientName());
 		ap.setPatientPhoneNo(appointment.getPatientPhoneNo());
 		ap.setApplyDate(appointment.getApplyDate());
-
-		
 		Appointments appointmentdata = appointmentsRepo.save(ap);
 		if (appointmentdata != null) {
 			session.setAttribute("patientappiontment", appointmentdata);
